@@ -3,9 +3,11 @@
       package="edu.ucdavis.mcsg.DataLogger"
       android:versionCode="1"
       android:versionName="1.0">
+<uses-permission android:name="android.permission.BATTERY_STATS"></uses-permission>
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"></uses-permission>
 
 
-    <application android:icon="@drawable/icon" android:label="@string/app_name">
+    <application android:icon="@drawable/icon" android:label="@string/app_name" android:debuggable="true">
         <activity android:name=".DataLoggerService"
                   android:label="@string/app_name">
             <intent-filter>
@@ -13,6 +15,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:name="PowerChangedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
 
     </application>
 </manifest>
