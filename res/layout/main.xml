@@ -5,6 +5,7 @@
     android:layout_height="fill_parent"
     android:padding="10dp"
     >
+    <Button android:layout_width="fill_parent" android:layout_weight="1" android:layout_height="fill_parent" android:id="@+id/exportButton" android:text="Export" android:textSize="40sp" android:gravity="center"></Button>
     <Button android:text="Start" android:id="@+id/startLoggingButton" android:gravity="center" android:layout_height="fill_parent" android:layout_width="fill_parent" android:textSize="40sp" android:layout_weight="1"></Button>
     <TextView android:text="Stopped" android:id="@+id/loggingTextView" android:gravity="center" android:layout_height="fill_parent" android:layout_width="fill_parent" android:textSize="50sp" android:layout_weight="1" android:textColor="#FF0000"></TextView>
 </LinearLayout>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="upload_path">http://www.frankmaker.com/research/handle_upload.php</string>
+    
+</resources>

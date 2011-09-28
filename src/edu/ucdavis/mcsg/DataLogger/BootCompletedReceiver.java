@@ -11,7 +11,8 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		Log.d(TAG,"Received systemChanged intent");
-		context.startService(new Intent(context, DataLoggerService.class));
+		AlarmScheduler alarm = new AlarmScheduler(context);
+		alarm.startAlarm();
 	}
 	
 }

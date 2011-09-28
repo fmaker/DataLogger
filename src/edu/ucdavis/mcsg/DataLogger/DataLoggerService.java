@@ -10,12 +10,9 @@ import android.content.IntentFilter;
 import android.os.IBinder;
 import android.util.Log;
 
-import com.android.internal.os.PowerProfile;
-
 public class DataLoggerService extends Service{
 	private static final String TAG = "DataLoggerService";
 	public static final String STOP_SERVICE = "STOP_SERVICE";
-	public PowerProfile mPowerProfile;
 	private IntentFilter mFilter;
 	public static boolean mLogging = false;
 	BatteryChangedReceiver batteryChanged;
@@ -30,7 +27,7 @@ public class DataLoggerService extends Service{
 
 	@Override
 	public void onCreate() {
-		mPowerProfile = new PowerProfile(this);
+		//mPowerProfile = new PowerProfile(this);
 		batteryChanged = new BatteryChangedReceiver();
 		notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 		super.onCreate();
@@ -59,7 +56,7 @@ public class DataLoggerService extends Service{
 	public void onDestroy() {
 		Log.d(TAG, "Destroying");
 		unregisterReceiver(batteryChanged);
-		mPowerProfile = null;
+		//mPowerProfile = null;
 		notification(false);
 		
 		super.onDestroy();
@@ -91,6 +88,6 @@ public class DataLoggerService extends Service{
 
 		notification.setLatestEventInfo(context, title, contentText, contentIntent);
 
-		notificationManager.notify(STATUS_ID, notification);
+		//notificationManager.notify(STATUS_ID, notification);
 	}
 }
